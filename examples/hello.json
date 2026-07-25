@@ -1,0 +1,42 @@
+{
+  "type": "hello",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:28:36.1088530Z",
+  "sequence": 2,
+  "state": "menu",
+  "run_id": "",
+  "mod_name": "RoR2ItemSync",
+  "mod_version": "2.0.0",
+  "ror2_version": "1.4.1",
+  "broadcast_intervals": {
+    "inventory_update_ms": 500,
+    "world_scan_ms": 5000
+  },
+  "capabilities": [
+    "inventory_update",
+    "run_started",
+    "run_ended",
+    "stage_changed",
+    "player_died",
+    "pickup_granted",
+    "ping",
+    "request_world_state",
+    "request_run_summary",
+    "request_loadout",
+    "request_modded_items",
+    "request_run_journal",
+    "teleporter_activated",
+    "teleporter_charged",
+    "shrine_mountain_activated",
+    "newt_altar_used",
+    "chest_opened",
+    "shrine_used",
+    "purchase_made",
+    "boss_defeated",
+    "scrapper_used",
+    "item_transformed",
+    "player_respawned",
+    "request_challenges",
+    "error"
+  ]
+}

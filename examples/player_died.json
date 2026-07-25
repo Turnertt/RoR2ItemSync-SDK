@@ -1,0 +1,41 @@
+{
+  "type": "player_died",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:38:48.3885517Z",
+  "sequence": 574,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "severity": "major",
+  "player": {
+    "display_name": "ExamplePlayer",
+    "network_user_id": "76561190000000000",
+    "is_local": true,
+    "is_bot": false,
+    "resolved": true,
+    "survivor": {
+      "name": "Bandit",
+      "body_name": "Bandit2Body"
+    }
+  },
+  "killed_by": {
+    "kind": "monster",
+    "body_name": "ClayBruiserBody",
+    "name": "Clay Templar",
+    "is_elite": true
+  },
+  "timer": {
+    "run_seconds": 561.5,
+    "stage_seconds": 168.3,
+    "difficulty_coefficient": 2.42,
+    "is_paused": false,
+    "has_focus": true
+  },
+  "stage": {
+    "number": 2,
+    "name": "Abandoned Aqueduct",
+    "name_token": "MAP_GOOLAKE_TITLE",
+    "scene_name": "goolake",
+    "scene_type": "Stage",
+    "is_interstitial": false
+  }
+}

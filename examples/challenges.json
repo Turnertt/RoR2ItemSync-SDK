@@ -1,0 +1,1032 @@
+{
+  "type": "challenges",
+  "schema_version": 1,
+  "challenges": [
+    {
+      "id": "Die5Times",
+      "name": "Learning Process",
+      "description": "Die 5 times.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteTeleporter",
+      "name": "Advancement",
+      "description": "Complete a Teleporter event.",
+      "unlocked": true
+    },
+    {
+      "id": "Discover10UniqueTier1",
+      "name": "The Basics",
+      "description": "Discover 10 unique white items.",
+      "unlocked": true
+    },
+    {
+      "id": "RepeatedlyDuplicateItems",
+      "name": "...Maybe One More.",
+      "description": "Duplicate the same item 7 times in a row with a 3D Printer.",
+      "unlocked": true
+    },
+    {
+      "id": "FailShrineChance",
+      "name": "\"Is This Bugged?\"",
+      "description": "Fail the Shrine of Chance 3 times in a row.",
+      "unlocked": true
+    },
+    {
+      "id": "KillEliteMonster",
+      "name": "Elite Slayer",
+      "description": "Defeat an Elite-type monster.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteTeleporterWithoutInjury",
+      "name": "Flawless",
+      "description": "Fully charge a Teleporter without getting hit.",
+      "unlocked": true
+    },
+    {
+      "id": "KillBossQuick",
+      "name": "Keyed Up",
+      "description": "Defeat the Teleporter boss under 15 seconds.",
+      "unlocked": true
+    },
+    {
+      "id": "AttackSpeed",
+      "name": "Rapidfire",
+      "description": "Reach +200% attack speed.",
+      "unlocked": true
+    },
+    {
+      "id": "MultiCombatShrine",
+      "name": "Warmonger",
+      "description": "Complete 3 Combat Shrines in a single stage.",
+      "unlocked": true
+    },
+    {
+      "id": "Discover5Equipment",
+      "name": "Experimenting",
+      "description": "Pick up 5 different types of Equipment.",
+      "unlocked": true
+    },
+    {
+      "id": "KillElitesMilestone",
+      "name": "Cut Down",
+      "description": "Defeat 500 elite monsters.",
+      "unlocked": true
+    },
+    {
+      "id": "KillElementalLemurians",
+      "name": "Death Do Us Part",
+      "description": "Discover the hidden chamber in the Abandoned Aqueduct.",
+      "unlocked": true
+    },
+    {
+      "id": "CompletePrismaticTrial",
+      "name": "Prismatically Aligned",
+      "description": "Complete a Prismatic Trial.",
+      "unlocked": true
+    },
+    {
+      "id": "KillTotalEnemies",
+      "name": "Slaughter",
+      "description": "Defeat 3000 enemies.",
+      "unlocked": true
+    },
+    {
+      "id": "MoveSpeed",
+      "name": "Going Fast Recommended",
+      "description": "Reach +300% movespeed (includes sprinting).",
+      "unlocked": true
+    },
+    {
+      "id": "AutomationActivation",
+      "name": "Automation Activation",
+      "description": "Activate 6 turrets in a single run.",
+      "unlocked": true
+    },
+    {
+      "id": "ChargeTeleporterWhileNearDeath",
+      "name": "Glorious Battle",
+      "description": "Charge the Teleporter with less than 10% health.",
+      "unlocked": true
+    },
+    {
+      "id": "LoopOnce",
+      "name": "Deja Vu?",
+      "description": "Loop back to the first stage.",
+      "unlocked": true
+    },
+    {
+      "id": "Complete20Stages",
+      "name": "The Long Road",
+      "description": "Complete 20 stages in a single run.",
+      "unlocked": true
+    },
+    {
+      "id": "StayAlive1",
+      "name": "The Lone Survivor",
+      "description": "Stay alive for 30 consecutive minutes.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteThreeStagesWithoutHealing",
+      "name": "Naturopath",
+      "description": "Without healing, reach and complete the 3rd Teleporter event.",
+      "unlocked": true
+    },
+    {
+      "id": "HardEliteBossKill",
+      "name": "Deicide",
+      "description": "Defeat an Elite boss on Monsoon difficulty.",
+      "unlocked": true
+    },
+    {
+      "id": "FindDevilAltar",
+      "name": "Her Concepts",
+      "description": "Find the Altar to N'kuhana.",
+      "unlocked": true
+    },
+    {
+      "id": "HardHitter",
+      "name": "Macho",
+      "description": "Deal 5000 damage in one shot.",
+      "unlocked": true
+    },
+    {
+      "id": "FindUniqueNewtStatues",
+      "name": "Newtist",
+      "description": "Discover and activate 8 unique Newt Altars.",
+      "unlocked": true
+    },
+    {
+      "id": "SuicideHermitCrabs",
+      "name": "The Demons And The Crabs",
+      "description": "Kill 20 Hermit Crabs by chasing them off the edge of the map.",
+      "unlocked": true
+    },
+    {
+      "id": "NeverBackDown",
+      "name": "Never Back Down",
+      "description": "In 4 consecutive stages don\u2019t leave the teleporter radius until it is fully charged.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteMainEndingHard",
+      "name": "The Calm",
+      "description": "Escape the moon on Monsoon difficulty.",
+      "unlocked": true
+    },
+    {
+      "id": "KillBossQuantityInRun",
+      "name": "Blockade Breaker",
+      "description": "Kill 15 boss monsters in a single run.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteUnknownEnding",
+      "name": "True Respite",
+      "description": "Obliterate yourself at the Obelisk..",
+      "unlocked": true
+    },
+    {
+      "id": "MajorMultikill",
+      "name": "Multikill!",
+      "description": "Kill 15 enemies simultaneously.",
+      "unlocked": true
+    },
+    {
+      "id": "CarryLunarItems",
+      "name": "Moon Worshipper",
+      "description": "Carry 5 Lunar items in a single run.",
+      "unlocked": true
+    },
+    {
+      "id": "UseThreePortals",
+      "name": "Cosmic Explorer",
+      "description": "Discover and enter three unique portals.",
+      "unlocked": true
+    },
+    {
+      "id": "FindTimedChest",
+      "name": "[REDACTED]",
+      "description": "Open the Timed Security Chest on Rallypoint Delta.",
+      "unlocked": true
+    },
+    {
+      "id": "BurnToDeath",
+      "name": "Warm For Life",
+      "description": "Die three times while burning.",
+      "unlocked": true
+    },
+    {
+      "id": "Die20Times",
+      "name": "I Love Dying!",
+      "description": "Die 20 times.",
+      "unlocked": true
+    },
+    {
+      "id": "TotalDronesRepaired",
+      "name": "Mechanic",
+      "description": "Repair 30 drones or turrets.",
+      "unlocked": true
+    },
+    {
+      "id": "KillGoldTitanInOneCycle",
+      "name": "Blackout",
+      "description": "Defeat the unique guardian of Gilded Coast without any beacons deactivating.",
+      "unlocked": true
+    },
+    {
+      "id": "TotalMoneyCollected",
+      "name": "Funded!",
+      "description": "Collect $30,480 total gold.",
+      "unlocked": true
+    },
+    {
+      "id": "DefeatFalseSon",
+      "name": "King of the Hill",
+      "description": "Journey to the Prime Meridian and defeat the False Son.",
+      "unlocked": true
+    },
+    {
+      "id": "CompleteMultiBossShrine",
+      "name": "Ascendant",
+      "description": "Defeat the Teleporter bosses after activating 2 Shrines of the Mountain.",
+      "unlocked": true
+    },
+    {
+      "id": "MaxHealingShrine",
+      "name": "One with the Woods",
+      "description": "Fully upgrade a Shrine of the Woods.",
+      "unlocked": true
+    },
+    {
+      "id": "CleanupDuty",
+      "name": "Cleanup Duty",
+      "description": "Destroy 20 flying rocks in Sky Meadow.",
+      "unlocked": true
+    },
+    {
+      "id": "LogCollector",
+      "name": "Bookworm",
+      "description": "Collect 10 Monster or Environment Logs.",
+      "unlocked": true
+    },
+    {
+      "id": "CommandoKillOverloadingWorm",
+      "name": "Commando: Rolling Thunder",
+      "description": "As Commando, land the killing blow on an Overloading Worm.",
+      "unlocked": false
+    },
+    {
+      "id": "CommandoFastFirstStageClear",
+      "name": "Commando: Godspeed",
+      "description": "As Commando, fully charge the first-stage teleporter before the timer hits 5 minutes.",
+      "unlocked": false
+    },
+    {
+      "id": "CommandoNonLunarEndurance",
+      "name": "Commando: Incorruptible",
+      "description": "As Commando, clear 20 stages in a single run without picking up any Lunar items.",
+      "unlocked": false
+    },
+    {
+      "id": "CommandoClearGameMonsoon",
+      "name": "Commando: Mastery",
+      "description": "As Commando, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "CommandoClearMeridianEvent",
+      "name": "Commando: Cleared Prime Meridian",
+      "description": "As Commando, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "CommandoPurge",
+      "name": "Commando: Purge",
+      "description": "As Commando, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressAllGlaiveBouncesKill",
+      "name": "Huntress: Finishing Touch",
+      "description": "As Huntress, land a killing blow with every possible hit of a single glaive.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressCollectCrowbars",
+      "name": "Huntress: One Shot, One Kill",
+      "description": "As Huntress, collect and carry 12 Crowbars at once.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressMaintainFullHealthOnFrozenWall",
+      "name": "Huntress: Piercing Wind",
+      "description": "As Huntress, start and finish either Rallypoint Delta or Scorched Acres without falling below 100% health.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressClearGameMonsoon",
+      "name": "Huntress: Mastery",
+      "description": "As Huntress, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressClearMeridianEvent",
+      "name": "Huntress: Cleared Prime Meridian",
+      "description": "As Huntress, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "HuntressPurge",
+      "name": "Huntress: Purge",
+      "description": "As Huntress, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "CompleteThreeStages",
+      "name": "Warrior",
+      "description": "Reach and complete the 3rd Teleporter event without dying.",
+      "unlocked": true
+    },
+    {
+      "id": "Bandit2ConsecutiveReset",
+      "name": "Bandit: Classic Man",
+      "description": "As Bandit, successfully use 'Lights Out' to reset your cooldowns 15 times in a row.",
+      "unlocked": false
+    },
+    {
+      "id": "Bandit2StackSuperBleed",
+      "name": "Bandit: Sadist",
+      "description": "As Bandit, kill a monster with 20 stacks of Hemorrhage.",
+      "unlocked": false
+    },
+    {
+      "id": "Bandit2RevolverFinale",
+      "name": "Bandit: B&E",
+      "description": "As Bandit, kill the final boss with 'Lights Out'.",
+      "unlocked": false
+    },
+    {
+      "id": "Bandit2ClearGameMonsoon",
+      "name": "Bandit: Mastery",
+      "description": "As Bandit, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "Bandit2ClearMeridianEvent",
+      "name": "Bandit: Cleared Prime Meridian",
+      "description": "As Bandit, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "Bandit2Decompile",
+      "name": "Bandit: Accept and Decompile",
+      "description": "As Bandit, accept the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "RepeatFirstTeleporter",
+      "name": "Verified",
+      "description": "Complete the first Teleporter event 5 times.",
+      "unlocked": true
+    },
+    {
+      "id": "ToolbotGuardTeleporter",
+      "name": "MUL-T: Pest Control",
+      "description": "As MUL-T, defeat two Beetle Queens without leaving the teleporter zone.",
+      "unlocked": false
+    },
+    {
+      "id": "ToolbotKillImpBossWithBfg",
+      "name": "MUL-T: Gotcha!",
+      "description": "As MUL-T, land the killing blow on an Imp Overlord with the Preon Accumulator.",
+      "unlocked": false
+    },
+    {
+      "id": "ToolbotBeatArenaLater",
+      "name": "MUL-T: Seventh Day",
+      "description": "As MUL-T, clear the Void Fields on Stage 7 or later.",
+      "unlocked": false
+    },
+    {
+      "id": "ToolbotClearGameMonsoon",
+      "name": "MUL-T: Mastery",
+      "description": "As MUL-T, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "ToolbotClearMeridianEvent",
+      "name": "MUL-T: Cleared Prime Meridian",
+      "description": "As MUL-T, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "ToolbotPurge",
+      "name": "MUL-T: Purge",
+      "description": "As MUL-T, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "Complete30StagesCareer",
+      "name": "Engineering Perfection",
+      "description": "Complete 30 stages.",
+      "unlocked": true
+    },
+    {
+      "id": "EngiKillBossQuick",
+      "name": "Engineer: 100% Calculated",
+      "description": "As Engineer, defeat the teleporter boss in less than 5 seconds after it spawns.",
+      "unlocked": false
+    },
+    {
+      "id": "EngiClearTeleporterWithZeroMonsters",
+      "name": "Engineer: Zero Sum",
+      "description": "As Engineer, finish charging the teleporter with zero monsters remaining on the stage.",
+      "unlocked": false
+    },
+    {
+      "id": "EngiArmy",
+      "name": "Engineer: Better With Friends",
+      "description": "As Engineer, recruit 12 minions at one time.",
+      "unlocked": false
+    },
+    {
+      "id": "EngiClearGameMonsoon",
+      "name": "Engineer: Mastery",
+      "description": "As Engineer, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "EngiClearMeridianEvent",
+      "name": "Engineer: Cleared Prime Meridian",
+      "description": "As Engineer, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "EngiPurge",
+      "name": "Engineer: Purge",
+      "description": "As Engineer, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "FreeMage",
+      "name": "Pause.",
+      "description": "Free the survivor suspended in time.",
+      "unlocked": true
+    },
+    {
+      "id": "MageMultiKill",
+      "name": "Artificer: Massacre",
+      "description": "As Artificer, perform a multikill of 20 enemies.",
+      "unlocked": false
+    },
+    {
+      "id": "MageFastBoss",
+      "name": "Artificer: Chunked!",
+      "description": "As Artificer, fully defeat the teleporter boss in a one-second burst of damage.",
+      "unlocked": false
+    },
+    {
+      "id": "MageAirborneMultiKill",
+      "name": "Artificer: Orbital Bombardment",
+      "description": "As Artificer, kill 15 enemies before touching the ground.",
+      "unlocked": false
+    },
+    {
+      "id": "MageClearGameMonsoon",
+      "name": "Artificer: Mastery",
+      "description": "As Artificer, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "MageClearMeridianEvent",
+      "name": "Artificer: Cleared Prime Meridian",
+      "description": "As Artificer, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "MageDecompile",
+      "name": "Artificer: Accept and Decompile",
+      "description": "As Artificer, accept the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "MercDontTouchGround",
+      "name": "Mercenary: Demon of the Skies",
+      "description": "As Mercenary, don't touch the ground for 30 seconds.",
+      "unlocked": false
+    },
+    {
+      "id": "MercXSkillsInYSeconds",
+      "name": "Mercenary: Flash of Blades",
+      "description": "As Mercenary, use 20 abilities in 10 seconds.",
+      "unlocked": false
+    },
+    {
+      "id": "MercCompleteTrialWithFullHealth",
+      "name": "Mercenary: Ethereal",
+      "description": "As Mercenary, complete a Prismatic Trial without falling below 100% health.",
+      "unlocked": false
+    },
+    {
+      "id": "MercClearGameMonsoon",
+      "name": "Mercenary: Mastery",
+      "description": "As Mercenary, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "MercClearMeridianEvent",
+      "name": "Mercenary: Cleared Prime Meridian",
+      "description": "As Mercenary, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "MercPurge",
+      "name": "Mercenary: Purge",
+      "description": "As Mercenary, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "RescueTreebot",
+      "name": "Power Plant",
+      "description": "Repair the broken robot with an Escape Pod's Fuel Array.",
+      "unlocked": true
+    },
+    {
+      "id": "TreebotLowHealthTeleporter",
+      "name": "REX: Bushwhacked",
+      "description": "As REX, complete an entire teleporter event while under 50% health.",
+      "unlocked": false
+    },
+    {
+      "id": "TreebotDunkClayBoss",
+      "name": "REX: Dunked",
+      "description": "As REX, kill a Clay Dunestrider on Abandoned Aqueduct by throwing it into a pit.",
+      "unlocked": false
+    },
+    {
+      "id": "TreebotBigHeal",
+      "name": "REX: Full of Life",
+      "description": "As REX, heal for 1000 health at once.",
+      "unlocked": false
+    },
+    {
+      "id": "TreebotClearGameMonsoon",
+      "name": "REX: Mastery",
+      "description": "As REX, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "TreebotClearMeridianEvent",
+      "name": "REX: Cleared Prime Meridian",
+      "description": "As REX, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "TreebotDecompile",
+      "name": "REX: Accept and Decompile",
+      "description": "As REX, accept the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "DefeatSuperRoboBallBoss",
+      "name": "Guidance Offline",
+      "description": "Defeat the unique guardian of Siren's Call.",
+      "unlocked": true
+    },
+    {
+      "id": "LoaderSpeedRun",
+      "name": "Loader: Swing By",
+      "description": "As Loader, reach and proceed through the Celestial Portal in 25 minutes or less.",
+      "unlocked": false
+    },
+    {
+      "id": "LoaderBigSlam",
+      "name": "Loader: Earthshatter",
+      "description": "As Loader, land a Charged Gauntlet hit at 300mph or higher.",
+      "unlocked": false
+    },
+    {
+      "id": "LoaderKillLoaders",
+      "name": "Loader: The Thunderdome",
+      "description": "As Loader, kill three other Loaders in the Bulwark's Ambry.",
+      "unlocked": false
+    },
+    {
+      "id": "LoaderClearGameMonsoon",
+      "name": "Loader: Mastery",
+      "description": "As Loader, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "LoaderClearMeridianEvent",
+      "name": "Loader: Cleared Prime Meridian",
+      "description": "As Loader, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "LoaderDecompile",
+      "name": "Loader: Accept and Decompile",
+      "description": "As Loader, accept the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "BeatArena",
+      "name": "...To Be Left Alone",
+      "description": "Stabilize the Cell in the Void Fields.",
+      "unlocked": true
+    },
+    {
+      "id": "CrocoKillWeakEnemiesMilestone",
+      "name": "Acrid: Easy Prey",
+      "description": "As Acrid, land the killing blow on 50 total enemies that have 1 hit point left.",
+      "unlocked": false
+    },
+    {
+      "id": "CrocoKillScavenger",
+      "name": "Acrid: Bad Medicine",
+      "description": "As Acrid, land the final blow on a Scavenger.",
+      "unlocked": false
+    },
+    {
+      "id": "CrocoTotalInfectionsMilestone",
+      "name": "Acrid: Pandemic",
+      "description": "As Acrid, inflict Poison 1000 total times.",
+      "unlocked": false
+    },
+    {
+      "id": "CrocoClearGameMonsoon",
+      "name": "Acrid: Mastery",
+      "description": "As Acrid, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "CrocoClearMeridianEvent",
+      "name": "Acrid: Cleared Prime Meridian",
+      "description": "As Acrid, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "CrocoPurge",
+      "name": "Acrid: Purge",
+      "description": "As Acrid, reject the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "CompleteMainEnding",
+      "name": "Washed Away",
+      "description": "Escape the moon.",
+      "unlocked": true
+    },
+    {
+      "id": "CaptainSupplyDropFinale",
+      "name": "Captain: Smushed",
+      "description": "As Captain, kill the final boss using a Supply Beacon.",
+      "unlocked": false
+    },
+    {
+      "id": "CaptainVisitSeveralStages",
+      "name": "Captain: Wanderlust",
+      "description": "As Captain, visit 10 different environments in a single run.",
+      "unlocked": false
+    },
+    {
+      "id": "CaptainBuyMegaDrone",
+      "name": "Captain: Worth Every Penny",
+      "description": "As Captain, repair and recruit a TC-280 Prototype.",
+      "unlocked": false
+    },
+    {
+      "id": "CaptainClearGameMonsoon",
+      "name": "Captain: Mastery",
+      "description": "As Captain, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "CaptainClearMeridianEvent",
+      "name": "Captain: Cleared Prime Meridian",
+      "description": "As Captain, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "CaptainDecompile",
+      "name": "Captain: Accept and Decompile",
+      "description": "As Captain, accept the offering of the Collective.",
+      "unlocked": false
+    },
+    {
+      "id": "RailgunnerConsecutiveWeakPoints",
+      "name": "Railgunner: Marksman",
+      "description": "As Railgunner, fire 30 consecutive sniper shots without missing a Weak Point.",
+      "unlocked": false
+    },
+    {
+      "id": "RailgunnerDealMassiveDamage",
+      "name": "Railgunner: Annihilator",
+      "description": "As Railgunner, deal 1,000,000 damage in one shot.",
+      "unlocked": false
+    },
+    {
+      "id": "RailgunnerAirborneMultiKill",
+      "name": "Railgunner: Trickshot",
+      "description": "As Railgunner, get 3 kills with a single Supercharge shot while airborne.",
+      "unlocked": false
+    },
+    {
+      "id": "RailgunnerClearGameMonsoon",
+      "name": "Railgunner: Mastery",
+      "description": "As Railgunner, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "RailgunnerClearMeridianEvent",
+      "name": "Railgunner: Cleared Prime Meridian",
+      "description": "As Railgunner, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "CompleteVoidEnding",
+      "name": "Dragged Below",
+      "description": "Escape the Planetarium or complete wave 50 in Simulacrum.",
+      "unlocked": true
+    },
+    {
+      "id": "VoidSurvivorClearGameMonsoon",
+      "name": "\u300cV??oid Fiend\u300f: Mastery",
+      "description": "As \u300cV??oid Fiend\u300f, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "VoidSurvivorClearMeridianEvent",
+      "name": "\u300cV??oid Fiend\u300f: Cleared Prime Meridian",
+      "description": "As \u300cV??oid Fiend\u300f, complete the Event on Prime Meridian.",
+      "unlocked": false
+    },
+    {
+      "id": "SeekerAirMultiHit",
+      "name": "Seeker: Airborne Souls",
+      "description": "As Seeker, hit three or more airborne enemies with a single use of the exploding third hit of Spirit Punch.",
+      "unlocked": false
+    },
+    {
+      "id": "NukeSojourn",
+      "name": "Seeker: Scorched Earth",
+      "description": "Deal 500,000% damage with one use of Sojourn's explosion.",
+      "unlocked": false
+    },
+    {
+      "id": "SeekerPerfect20Meditation",
+      "name": "Seeker: Clear Mind",
+      "description": "As Seeker, meditate 20 times consecutively without missing an input in a single run.",
+      "unlocked": false
+    },
+    {
+      "id": "SeekerClearGameMonsoon",
+      "name": "Seeker: Mastery",
+      "description": "As Seeker, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "UnlockFalseSon",
+      "name": "Purified Freedom",
+      "description": "Purify the Heart of the False Son using the Halcyon Seed.",
+      "unlocked": true
+    },
+    {
+      "id": "FalseSonGrowthChallenge",
+      "name": "False Son: Protein Heavy Diet",
+      "description": "As False Son, gain 40 additional Lunar Spikes through Growth.",
+      "unlocked": false
+    },
+    {
+      "id": "FalseSonKillMithrixWithGoldenGal",
+      "name": "False Son: Family Bonding",
+      "description": "As False Son, have Aurelionite kill the final boss while the final boss is inflicted with at least one Lunar Ruin.",
+      "unlocked": false
+    },
+    {
+      "id": "FalseSonLaserMultiKill",
+      "name": "False Son: Stare Them Down",
+      "description": "As False Son, kill 15 enemies with one activation of Laser of the Father.",
+      "unlocked": false
+    },
+    {
+      "id": "FalseSonClearGameMonsoon",
+      "name": "False Son: Mastery",
+      "description": "As False Son, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "ActivateChef",
+      "name": "Order Up!",
+      "description": "Complete the Wok\u2019s recipe in Reformed Altar.",
+      "unlocked": true
+    },
+    {
+      "id": "BurnMithrix",
+      "name": "CHEF: It's Getting Hot In Here!",
+      "description": "As CHEF apply 20 stacks of Burn at once to the final boss.",
+      "unlocked": false
+    },
+    {
+      "id": "RolyPolyHitFiveAirEnemies",
+      "name": "CHEF: You've Always Been Crazy",
+      "description": "As CHEF hit five airborne enemies with one instance of Roll.",
+      "unlocked": false
+    },
+    {
+      "id": "BarbecueQuantityBisonInRun",
+      "name": "CHEF: Barbecued Bison Recipe Complete",
+      "description": "As CHEF complete 10 recipes by searing an oiled bison with Sear.",
+      "unlocked": false
+    },
+    {
+      "id": "ChefClearGameMonsoon",
+      "name": "CHEF: Mastery",
+      "description": "As CHEF, beat the game or obliterate on Monsoon.",
+      "unlocked": false
+    },
+    {
+      "id": "DroneTechTrickshot",
+      "name": "Operator: That All You Got?",
+      "description": "As Operator, kill 4 different types of monsters with a single ricochet.",
+      "unlocked": false
+    },
+    {
+      "id": "DroneTechDefeatVultureBossWhileAirborne",
+      "name": "Operator: Not So Different",
+      "description": "As Operator, defeat the Teleporter boss on Conduit Canyon without touching the ground.",
+      "unlocked": false
+    },
+    {
+      "id": "DroneTechJuggleLemurian",
+      "name": "Operator: That Just Happened",
+      "description": "As Operator, keep an Elder Lemurian airborne for 10 seconds.",
+      "unlocked": false
+    },
+    {
+      "id": "DroneTechUniqueDrones",
+      "name": "Operator: Putting Together a Team",
+      "description": "As Operator, recruit 5 different drones.",
+      "unlocked": false
+    },
+    {
+      "id": "DroneTechClearGameMonsoon",
+      "name": "Operator: Mastery",
+      "description": "As Operator, beat the game or obliterate on Monsoon.",
+      "unlocked": true
+    },
+    {
+      "id": "FreeDrifter",
+      "name": "Lost in Transit",
+      "description": "Free the survivor from the vault in Solutional Haunt.",
+      "unlocked": true
+    },
+    {
+      "id": "DrifterJunkCubeAchievement",
+      "name": "Drifter: Trash Compactor",
+      "description": "As Drifter, carry 20 temporary items at once.",
+      "unlocked": true
+    },
+    {
+      "id": "DrifterTornadoSlamAchievement",
+      "name": "Drifter: In The Bag",
+      "description": "As Drifter, defeat a boss from the challenge of the Mountain by tossing a Shrine of the Mountain.",
+      "unlocked": true
+    },
+    {
+      "id": "DrifterTinkerAchievement",
+      "name": "Drifter: Leave No Trace",
+      "description": "As Drifter, claim the contents of the lost backpack in the vault of Solutional Haunt.",
+      "unlocked": true
+    },
+    {
+      "id": "DrifterClearGameMonsoon",
+      "name": "Drifter: Mastery",
+      "description": "As Drifter, beat the game or obliterate on Monsoon.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactBomb",
+      "name": "Trial of Spite",
+      "description": "Complete the Trial of Spite.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactCommand",
+      "name": "Trial of Command",
+      "description": "Complete the Trial of Command.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactDelusion",
+      "name": "Trial of Delusion",
+      "description": "Complete the Trial of Delusion.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactDevotion",
+      "name": "Trial of Devotion",
+      "description": "Complete the Trial of Devotion.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactEliteOnly",
+      "name": "Trial of Honor",
+      "description": "Complete the Trial of Honor.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactEnigma",
+      "name": "Trial of Enigma",
+      "description": "Complete the Trial of Enigma.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactFriendlyFire",
+      "name": "Trial of Chaos",
+      "description": "Complete the Trial of Chaos.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactGlass",
+      "name": "Trial of Glass",
+      "description": "Complete the Trial of Glass.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactMixEnemy",
+      "name": "Trial of Dissonance",
+      "description": "Complete the Trial of Dissonance.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactMonsterTeamGainsItems",
+      "name": "Trial of Evolution",
+      "description": "Complete the Trial of Evolution.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactPrestige",
+      "name": "Trial of Prestige",
+      "description": "Complete the Trial of Prestige.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactRandomSurvivorOnRespawn",
+      "name": "Trial of Metamorphosis",
+      "description": "Complete the Trial of Metamorphosis.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactRebirth",
+      "name": "Experienced Rebirth",
+      "description": "Gain the power of another life by offering to the Shrine of Rebirth.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactSacrifice",
+      "name": "Trial of Sacrifice",
+      "description": "Complete the Trial of Sacrifice.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactShadowClone",
+      "name": "Trial of Vengeance",
+      "description": "Complete the Trial of Vengeance.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactSingleMonsterType",
+      "name": "Trial of Kin",
+      "description": "Complete the Trial of Kin.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactSwarms",
+      "name": "Trial of Swarms",
+      "description": "Complete the Trial of Swarms.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactTeamDeath",
+      "name": "Trial of Death",
+      "description": "Complete the Trial of Death.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactWeakAssKnees",
+      "name": "Trial of Frailty",
+      "description": "Complete the Trial of Frailty.",
+      "unlocked": true
+    },
+    {
+      "id": "ObtainArtifactWispOnDeath",
+      "name": "Trial of Soul",
+      "description": "Complete the Trial of Soul.",
+      "unlocked": true
+    }
+  ]
+}

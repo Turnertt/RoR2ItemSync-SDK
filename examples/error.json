@@ -1,0 +1,12 @@
+{
+  "type": "error",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:29:41.5501224Z",
+  "sequence": 88,
+  "state": "menu",
+  "run_id": "",
+  "error": "unknown_request",
+  "detail": "Unrecognized request type. Feature-detect against hello.capabilities.",
+  "request_type": "request_bogus",
+  "request_id": "probe-1"
+}

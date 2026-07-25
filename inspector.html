@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RoR2ItemSync Inspector</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* ===== Reset + base ===== */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-size: 13px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: #c9d1d9;
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 5px 9px;
+  }
+  button {
+    cursor: pointer;
+    background: #21262d;
+    transition: background 0.1s, border-color 0.1s;
+  }
+  button:hover:not(:disabled) { background: #30363d; border-color: #58a6ff; }
+  button:active:not(:disabled) { background: #161b22; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  button.primary {
+    background: #238636;
+    border-color: #238636;
+    color: #fff;
+  }
+  button.primary:hover:not(:disabled) { background: #2ea043; border-color: #2ea043; }
+  button.danger {
+    background: #21262d;
+    border-color: #f85149;
+    color: #f85149;
+  }
+  button.danger:hover:not(:disabled) { background: #f85149; color: #fff; }
+
+  a.docs-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    background: #1f6feb;
+    border: 1px solid #1f6feb;
+    border-radius: 6px;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.1s, border-color 0.1s, box-shadow 0.1s;
+    box-shadow: 0 0 0 0 rgba(31, 111, 235, 0.4);
+  }
+  a.docs-cta:hover {
+    background: #388bfd;
+    border-color: #388bfd;
+    text-decoration: none;
+    box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.25);
+  }
+  a.docs-cta .icon { font-size: 14px; line-height: 1; }
+  a.docs-cta .arrow { opacity: 0.7; font-size: 11px; }
+
+  input, select, textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: #58a6ff; }
+
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== Header ===== */
+  header {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f6fc;
+  }
+  header h1 .v { color: #7d8590; font-weight: 400; }
+  header .spacer { flex: 1; }
+  header .field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7d8590;
+    font-size: 12px;
+  }
+  header .field input { width: 110px; padding: 4px 8px; }
+  header .field input.port { width: 60px; }
+
+  .conn-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .conn-state .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7d8590;
+  }
+  .conn-state.idle      { background: #21262d; color: #7d8590; }
+  .conn-state.connecting{ background: #1f3a5c; color: #79c0ff; }
+  .conn-state.connecting .dot { background: #79c0ff; animation: pulse 1s infinite; }
+  .conn-state.open      { background: #0d2818; color: #7ee787; }
+  .conn-state.open .dot { background: #7ee787; }
+  .conn-state.closed    { background: #3a1d1d; color: #ff7b72; }
+  .conn-state.closed .dot { background: #ff7b72; }
+  @keyframes pulse { 50% { opacity: 0.3; } }
+
+  /* ===== Hello bar ===== */
+  .hello-bar {
+    background: #0d2818;
+    border-bottom: 1px solid #2ea043;
+    padding: 8px 16px;
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #7ee787;
+    flex-shrink: 0;
+  }
+  .hello-bar .ok { color: #7ee787; }
+  .hello-bar .warn { color: #d29922; }
+  .hello-bar.hidden { display: none; }
+  .hello-bar.warn { background: #2b1d05; border-color: #d29922; color: #d29922; }
+  .hello-bar .field strong { color: #f0f6fc; font-weight: 600; margin-right: 4px; }
+  .hello-bar .field a.label-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+    cursor: help;
+  }
+  .hello-bar .field a.label-link:hover {
+    text-decoration: none;
+    border-bottom-style: solid;
+  }
+
+  /* ===== Main layout ===== */
+  main {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+  }
+  .left {
+    width: 360px;
+    background: #161b22;
+    border-right: 1px solid #30363d;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ===== Send panel (left) ===== */
+  .panel {
+    padding: 12px 16px;
+    border-bottom: 1px solid #30363d;
+  }
+  .panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #7d8590;
+    font-weight: 600;
+  }
+  .panel .hint {
+    font-size: 11px;
+    color: #7d8590;
+    margin-top: 8px;
+  }
+
+  .req-grid {
+    display: grid;
+    gap: 6px;
+  }
+  .req-row {
+    display: flex;
+    gap: 4px;
+  }
+  .req-row button {
+    text-align: left;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 7px 10px;
+    color: #79c0ff;
+    flex: 1;
+  }
+  .req-row button:hover:not(:disabled) {
+    border-color: #58a6ff;
+    color: #fff;
+  }
+  .req-row a.doc-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    color: #6e7681;
+    text-decoration: none;
+    font-size: 11px;
+    flex-shrink: 0;
+    transition: color 0.1s, border-color 0.1s, background 0.1s;
+  }
+  .req-row a.doc-link:hover {
+    color: #fff;
+    background: #1f3a5c;
+    border-color: #58a6ff;
+    text-decoration: none;
+  }
+
+  .custom-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .custom-area textarea {
+    flex: 1;
+    width: 100%;
+    resize: none;
+    font-size: 12px;
+    background: #0d1117;
+    margin-bottom: 8px;
+    min-height: 80px;
+    padding: 8px;
+  }
+  .custom-area .row {
+    display: flex;
+    gap: 6px;
+  }
+
+  /* ===== Message log (right) ===== */
+  .log-controls {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  .log-controls input.search {
+    flex: 1;
+    min-width: 120px;
+    padding: 5px 9px;
+  }
+  .log-controls button {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  .log-controls .stat {
+    color: #7d8590;
+    font-size: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    padding: 0 6px;
+  }
+  .log-controls .stat strong { color: #c9d1d9; font-weight: 600; }
+  .log-controls .gap { color: #d29922; }
+
+  .filter-row {
+    background: #0d1117;
+    border-bottom: 1px solid #30363d;
+    padding: 6px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    flex-shrink: 0;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 11px;
+    font-size: 11px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #30363d;
+    background: #21262d;
+    color: #7d8590;
+  }
+  .filter-pill.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+  .filter-pill .ct { font-size: 10px; opacity: 0.75; }
+
+  /* ===== Log entries ===== */
+  .log {
+    flex: 1;
+    overflow-y: auto;
+    background: #0d1117;
+    padding: 0;
+  }
+  .entry {
+    border-bottom: 1px solid #161b22;
+    padding: 6px 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+  }
+  .entry:hover { background: #11161d; }
+  .entry .head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .entry .head .chev {
+    color: #7d8590;
+    font-size: 10px;
+    width: 10px;
+    flex-shrink: 0;
+  }
+  .entry .type {
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-decoration: none;
+    transition: filter 0.1s;
+  }
+  .entry a.type:hover {
+    filter: brightness(1.3);
+    text-decoration: none;
+  }
+  .entry a.type::after {
+    content: " ↗";
+    opacity: 0;
+    font-size: 9px;
+    transition: opacity 0.1s;
+  }
+  .entry a.type:hover::after { opacity: 0.6; }
+  .entry .seq { color: #7d8590; font-size: 11px; }
+  .entry .time { color: #6e7681; font-size: 11px; }
+  .entry .preview {
+    color: #7d8590;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+  }
+  .entry pre {
+    margin: 6px 0 0 20px;
+    padding: 8px 10px;
+    background: #161b22;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #c9d1d9;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .entry pre.hidden { display: none; }
+
+  /* ===== Type color coding ===== */
+  .type-broadcast        { background: #1f3a5c; color: #79c0ff; } /* blue   : periodic broadcasts */
+  .type-event            { background: #5c3a1f; color: #ffa657; } /* orange : push events */
+  .type-response         { background: #1f5c3a; color: #7ee787; } /* green  : caller-only */
+  .type-stream           { background: #5c2c3a; color: #ff9bb3; } /* pink   : streamed dump */
+  .type-error            { background: #5c1f1f; color: #ff7b72; } /* red    : errors */
+  .type-hello            { background: #3a1f5c; color: #d2a8ff; } /* purple : hello */
+  .type-unknown          { background: #30363d; color: #c9d1d9; }
+
+  /* ===== JSON syntax highlighting ===== */
+  .json-key    { color: #79c0ff; }
+  .json-str    { color: #a5d6ff; }
+  .json-num    { color: #ff9bb3; }
+  .json-bool   { color: #ffa657; }
+  .json-null   { color: #ff7b72; }
+  .json-punct  { color: #7d8590; }
+
+  /* ===== Empty state ===== */
+  .empty {
+    text-align: center;
+    color: #6e7681;
+    padding: 60px 20px;
+  }
+  .empty h2 { margin: 0 0 8px 0; font-size: 16px; font-weight: 500; color: #7d8590; }
+  .empty p { margin: 4px 0; font-size: 13px; }
+
+  /* ===== Footer ===== */
+  footer {
+    background: #161b22;
+    border-top: 1px solid #30363d;
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 11px;
+    color: #7d8590;
+    flex-shrink: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  footer .spacer { flex: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>RoR2ItemSync Inspector <span class="v">v1</span></h1>
+  <div class="field">
+    <span>ws://</span>
+    <input id="host" value="127.0.0.1">
+    <span>:</span>
+    <input id="port" class="port" value="11420">
+    <span>/</span>
+  </div>
+  <button id="connectBtn" class="primary" onclick="onConnectClick()">Connect</button>
+  <span id="connState" class="conn-state idle"><span class="dot"></span><span class="label">disconnected</span></span>
+  <div class="spacer"></div>
+  <a href="docs.html" target="_blank" class="docs-cta" title="Open the developer docs in a new tab">
+    <span class="icon">📖</span>
+    <span>Docs</span>
+    <span class="arrow">↗</span>
+  </a>
+</header>
+
+<div id="helloBar" class="hello-bar hidden">
+  <div class="field"><strong>mod</strong> <span id="hMod">—</span></div>
+  <div class="field"><strong>version</strong> <span id="hVer">—</span></div>
+  <div class="field"><strong>game</strong> <span id="hRor">—</span></div>
+  <div class="field"><a class="label-link" href="docs.html#envelope" target="_blank" title="Envelope contract"><strong>schema</strong></a> <span id="hSchema">—</span></div>
+  <div class="field"><a class="label-link" href="docs.html#state-model" target="_blank" title="State model"><strong>state</strong></a> <span id="hState">—</span></div>
+  <div class="field"><a class="label-link" href="docs.html#feature-detect" target="_blank" title="Capability feature detection"><strong>caps</strong></a> <span id="hCaps">—</span></div>
+  <div class="field" id="hWarnField" style="display:none"><span class="warn" id="hWarn"></span></div>
+</div>
+
+<main>
+  <div class="left">
+    <div class="panel">
+      <h3>Send request</h3>
+      <div class="req-grid" id="reqButtons">
+        <div class="hint">Connect to see the server's capabilities, then a button appears for each supported request.</div>
+      </div>
+    </div>
+    <div class="panel" id="journalPresetsPanel" style="display:none">
+      <h3>Run journal presets</h3>
+      <div class="req-grid">
+        <div class="req-row">
+          <button onclick="sendJournalPreset('all')">Full journal</button>
+          <a class="doc-link" href="docs.html#m-request_run_journal" target="_blank" title="Open in docs">?</a>
+        </div>
+        <div class="req-row">
+          <button onclick="sendJournalPreset('major')">Major only</button>
+        </div>
+        <div class="req-row">
+          <button onclick="sendJournalPreset('minor')">Minor only</button>
+        </div>
+      </div>
+      <div class="hint">Filtered <code>request_run_journal</code> shortcuts. Each preset is a one-off — the response lands in the log as a <code>run_journal_response</code>.</div>
+    </div>
+    <div class="panel custom-area">
+      <h3>Custom JSON</h3>
+      <textarea id="customJson" placeholder='{"type": "request_world_state"}'></textarea>
+      <div class="row">
+        <button id="sendCustomBtn" onclick="sendCustomJson()" style="flex:1">Send</button>
+        <button onclick="document.getElementById('customJson').value=''">Clear</button>
+      </div>
+      <div class="hint">Useful for sending arbitrary requests, including ones the inspector doesn't show a button for. Ctrl/Cmd+Enter sends.</div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="log-controls">
+      <input id="search" class="search" placeholder="Search message JSON…" oninput="renderLog()">
+      <button onclick="clearLog()">Clear</button>
+      <button onclick="downloadLog()">Save .json</button>
+      <label style="display:flex;align-items:center;gap:5px;color:#7d8590;font-size:12px;">
+        <input id="autoscroll" type="checkbox" checked> auto-scroll
+      </label>
+      <label style="display:flex;align-items:center;gap:5px;color:#7d8590;font-size:12px;">
+        <input id="autoexpand" type="checkbox"> auto-expand
+      </label>
+      <div class="spacer"></div>
+      <div class="stat"><strong id="statCount">0</strong> msgs</div>
+      <div class="stat"><strong id="statRate">0.0</strong>/s</div>
+      <div class="stat gap" id="statGaps" style="display:none">Δseq: <strong id="statGapCount">0</strong></div>
+    </div>
+    <div id="filterRow" class="filter-row">
+      <span style="color:#6e7681;font-size:11px;font-family:ui-monospace,monospace;align-self:center">filter:</span>
+    </div>
+    <div id="log" class="log">
+      <div class="empty">
+        <h2>Not connected</h2>
+        <p>Click <strong>Connect</strong> above to start a session.</p>
+        <p style="margin-top:18px;font-size:11px">Reads from <code style="color:#79c0ff">ws://127.0.0.1:11420/</code> by default.</p>
+      </div>
+    </div>
+    <footer>
+      <span id="footStatus">idle</span>
+      <span class="spacer"></span>
+      <span><a href="docs.html" target="_blank">docs</a></span>
+      <span>·</span>
+      <span><a href="docs.html#guarantees" target="_blank">guarantees</a></span>
+      <span>·</span>
+      <span><a href="docs.html#shapes" target="_blank">shared shapes</a></span>
+      <span>·</span>
+      <span><a href="docs.html#live-messages" target="_blank">commands</a></span>
+      <span>·</span>
+      <span><a href="examples/" target="_blank">examples</a></span>
+    </footer>
+  </div>
+</main>
+
+<script>
+// ============ State ============
+let ws = null;
+let helloMsg = null;
+let messages = [];           // every received message in order
+let typeCounts = new Map();  // type -> count
+let activeFilter = "ALL";    // "ALL" or a type name
+let lastSeq = null;
+let sequenceGaps = 0;
+let openEntries = new Set(); // set of message indices that are expanded
+let rateWindow = [];         // timestamps of last 30 messages for msg/s
+
+const TARGET_SCHEMA = 2;
+
+// Set of type-names that should not appear as auto-generated request buttons.
+// These are AUTOMATION-only and not meant for third-party app authors.
+const HIDDEN_REQUESTS = new Set([
+  "dev_status",
+  "dev_open_solo_lobby",
+  "dev_start_run",
+  "dev_skip_intro",
+  // Outbound capability names that are events / push messages, not requests
+  "inventory_update", "run_started", "run_ended", "stage_changed",
+  "player_died", "pickup_granted",
+  "teleporter_activated", "teleporter_charged", "shrine_mountain_activated",
+  "newt_altar_used", "chest_opened", "shrine_used", "purchase_made",
+  "boss_defeated", "scrapper_used", "item_transformed", "player_respawned"
+]);
+
+// Capability -> default-flag payload for auto-generated request buttons
+const DEFAULT_PAYLOADS = {
+  request_modded_items: { type: "request_modded_items" }
+};
+
+// Map of message type -> classification (used for color + grouping)
+function typeKind(t) {
+  if (!t) return "unknown";
+  if (t === "hello")                  return "hello";
+  if (t === "inventory_update")       return "broadcast";
+  if (t === "pong" ||
+      t === "run_summary" ||
+      t === "loadout_response" ||
+      t === "run_journal_response" ||
+      t === "challenges")             return "response";
+  if (t.endsWith("_start") ||
+      t.endsWith("_end") ||
+      t === "modded_item")            return "stream";
+  if (t === "run_started" ||
+      t === "run_ended" ||
+      t === "stage_changed" ||
+      t === "player_died" ||
+      t === "pickup_granted" ||
+      t === "teleporter_activated" ||
+      t === "teleporter_charged" ||
+      t === "boss_defeated" ||
+      t === "shrine_mountain_activated" ||
+      t === "newt_altar_used" ||
+      t === "chest_opened" ||
+      t === "shrine_used" ||
+      t === "purchase_made" ||
+      t === "scrapper_used" ||
+      t === "item_transformed" ||
+      t === "player_respawned")       return "event";
+  if (t === "error")                  return "error";
+  return "unknown";
+}
+
+// ============ Connection ============
+function setConnState(state, label) {
+  const el = document.getElementById("connState");
+  el.className = "conn-state " + state;
+  el.querySelector(".label").textContent = label;
+  document.getElementById("connectBtn").textContent = state === "open" ? "Disconnect" : "Connect";
+  document.getElementById("footStatus").textContent = label;
+}
+
+function onConnectClick() {
+  if (ws && ws.readyState <= 1) {
+    ws.close();
+    return;
+  }
+  const host = document.getElementById("host").value.trim() || "127.0.0.1";
+  const port = document.getElementById("port").value.trim() || "11420";
+  const url = `ws://${host}:${port}/`;
+  setConnState("connecting", `connecting to ${url}`);
+  try {
+    ws = new WebSocket(url);
+  } catch (e) {
+    setConnState("closed", "connect failed: " + e.message);
+    return;
+  }
+  ws.onopen = () => setConnState("open", `connected to ${url}`);
+  ws.onmessage = onMessage;
+  ws.onclose = (e) => {
+    setConnState("closed", `closed (code ${e.code})`);
+    ws = null;
+  };
+  ws.onerror = () => {
+    setConnState("closed", "error");
+  };
+}
+
+// ============ Incoming messages ============
+function onMessage(e) {
+  let data;
+  try {
+    data = JSON.parse(e.data);
+  } catch {
+    pushMessage({ type: "error", parse_error: true, raw: e.data.slice(0, 500) });
+    return;
+  }
+  pushMessage(data);
+  if (data && data.type === "hello") {
+    applyHello(data);
+  }
+}
+
+function pushMessage(data) {
+  // Sequence gap detection (live messages only)
+  if (typeof data.sequence === "number") {
+    if (lastSeq !== null && data.sequence > lastSeq + 1) {
+      // The gap may be normal (caller-only responses to OTHER clients consume sequence numbers).
+      // Surface it but don't make it scary.
+      sequenceGaps++;
+      document.getElementById("statGapCount").textContent = sequenceGaps;
+      document.getElementById("statGaps").style.display = "";
+    }
+    if (data.sequence > (lastSeq || 0)) lastSeq = data.sequence;
+  }
+
+  const idx = messages.length;
+  const recvAt = Date.now();
+  messages.push({ data, recvAt });
+
+  const t = data && data.type;
+  typeCounts.set(t || "?", (typeCounts.get(t || "?") || 0) + 1);
+
+  // msg/s rolling window
+  rateWindow.push(recvAt);
+  if (rateWindow.length > 30) rateWindow.shift();
+  if (rateWindow.length >= 2) {
+    const span = (rateWindow[rateWindow.length - 1] - rateWindow[0]) / 1000;
+    const rate = span > 0 ? (rateWindow.length - 1) / span : 0;
+    document.getElementById("statRate").textContent = rate.toFixed(1);
+  }
+  document.getElementById("statCount").textContent = messages.length;
+
+  if (document.getElementById("autoexpand").checked) openEntries.add(idx);
+
+  renderFilterRow();
+  appendEntry(idx);
+}
+
+function applyHello(data) {
+  helloMsg = data;
+  const bar = document.getElementById("helloBar");
+  bar.classList.remove("hidden");
+
+  document.getElementById("hMod").textContent = data.mod_name || "?";
+  document.getElementById("hVer").textContent = data.mod_version || "?";
+  document.getElementById("hRor").textContent = data.ror2_version || "?";
+  document.getElementById("hSchema").textContent = data.schema_version;
+  document.getElementById("hState").textContent = data.state || "?";
+  document.getElementById("hCaps").textContent = (data.capabilities || []).length;
+
+  if (data.schema_version !== TARGET_SCHEMA) {
+    bar.classList.add("warn");
+    document.getElementById("hWarnField").style.display = "";
+    document.getElementById("hWarn").textContent =
+      `⚠ Inspector targets schema v${TARGET_SCHEMA}; server is v${data.schema_version}. Some features may not work.`;
+  } else {
+    bar.classList.remove("warn");
+    document.getElementById("hWarnField").style.display = "none";
+  }
+
+  renderRequestButtons(data.capabilities || []);
+
+  // Reveal Run journal presets panel if the server advertises the capability.
+  const caps = data.capabilities || [];
+  document.getElementById("journalPresetsPanel").style.display =
+    caps.includes("request_run_journal") ? "" : "none";
+}
+
+// ============ Run journal presets ============
+function sendJournalPreset(kind) {
+  const payload = { type: "request_run_journal", request_id: "inspector-" + Date.now() };
+  if (kind === "major") payload.severities = ["major"];
+  else if (kind === "minor") payload.severities = ["minor"];
+  // kind === "all": no severity filter
+  sendObject(payload);
+}
+
+// ============ Request buttons ============
+function renderRequestButtons(capabilities) {
+  const el = document.getElementById("reqButtons");
+  const reqCaps = capabilities.filter(c => !HIDDEN_REQUESTS.has(c));
+  if (reqCaps.length === 0) {
+    el.innerHTML = `<div class="hint">Server advertised no requestable commands (this is unusual).</div>`;
+    return;
+  }
+  el.innerHTML = "";
+  for (const cap of reqCaps) {
+    const row = document.createElement("div");
+    row.className = "req-row";
+
+    const btn = document.createElement("button");
+    btn.textContent = cap;
+    btn.onclick = () => sendRequest(cap);
+    row.appendChild(btn);
+
+    // Tiny ? link that opens the docs anchor for this request
+    const docLink = document.createElement("a");
+    docLink.className = "doc-link";
+    docLink.href = "docs.html#m-" + cap;
+    docLink.target = "_blank";
+    docLink.title = `Open ${cap} in docs`;
+    docLink.textContent = "?";
+    row.appendChild(docLink);
+
+    el.appendChild(row);
+  }
+}
+
+function sendRequest(cap) {
+  const payload = DEFAULT_PAYLOADS[cap] || { type: cap };
+  return sendObject(payload);
+}
+
+function sendCustomJson() {
+  const text = document.getElementById("customJson").value.trim();
+  if (!text) return;
+  let payload;
+  try {
+    payload = JSON.parse(text);
+  } catch (e) {
+    alert("Invalid JSON: " + e.message);
+    return;
+  }
+  sendObject(payload);
+}
+
+function sendObject(obj) {
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    alert("Not connected.");
+    return;
+  }
+  const msg = JSON.stringify(obj);
+  ws.send(msg);
+  // Echo into the log so devs can see what we sent
+  pushMessage({ _sent: true, ...obj });
+}
+
+// ============ Filters ============
+function renderFilterRow() {
+  const row = document.getElementById("filterRow");
+  const seen = Array.from(typeCounts.keys()).sort();
+  const allCount = messages.length;
+
+  // Rebuild only when types change
+  const desired = ["__ALL__", ...seen];
+  const existing = Array.from(row.querySelectorAll(".filter-pill")).map(p => p.dataset.type);
+  const desiredKey = desired.join("|");
+  const existingKey = existing.join("|");
+  if (desiredKey === existingKey) {
+    // Just update counts + active state
+    row.querySelectorAll(".filter-pill").forEach(p => {
+      const t = p.dataset.type;
+      const ct = t === "__ALL__" ? allCount : (typeCounts.get(t) || 0);
+      p.querySelector(".ct").textContent = ct;
+      const matches = (t === "__ALL__" ? "ALL" : t) === activeFilter;
+      p.classList.toggle("active", matches);
+    });
+    return;
+  }
+
+  // Full rebuild
+  row.innerHTML = '<span style="color:#6e7681;font-size:11px;font-family:ui-monospace,monospace;align-self:center">filter:</span>';
+  for (const t of desired) {
+    const pill = document.createElement("span");
+    pill.className = "filter-pill" + (activeFilter === (t === "__ALL__" ? "ALL" : t) ? " active" : "");
+    pill.dataset.type = t;
+    const label = t === "__ALL__" ? "ALL" : t;
+    const ct = t === "__ALL__" ? allCount : (typeCounts.get(t) || 0);
+    pill.innerHTML = `${label}<span class="ct">${ct}</span>`;
+    pill.onclick = () => {
+      activeFilter = t === "__ALL__" ? "ALL" : t;
+      renderFilterRow();
+      renderLog();
+    };
+    row.appendChild(pill);
+  }
+}
+
+// ============ Log rendering ============
+function clearLog() {
+  messages = [];
+  typeCounts.clear();
+  openEntries.clear();
+  lastSeq = null;
+  sequenceGaps = 0;
+  rateWindow = [];
+  document.getElementById("statCount").textContent = "0";
+  document.getElementById("statRate").textContent = "0.0";
+  document.getElementById("statGapCount").textContent = "0";
+  document.getElementById("statGaps").style.display = "none";
+  document.getElementById("log").innerHTML = "";
+  document.getElementById("filterRow").innerHTML =
+    '<span style="color:#6e7681;font-size:11px;font-family:ui-monospace,monospace;align-self:center">filter:</span>';
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    document.getElementById("log").innerHTML =
+      `<div class="empty"><h2>Not connected</h2><p>Click <strong>Connect</strong> above to start a session.</p></div>`;
+  }
+}
+
+function downloadLog() {
+  if (messages.length === 0) return;
+  const out = messages.map(m => m.data);
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  a.href = URL.createObjectURL(blob);
+  a.download = `ror2itemsync-inspector-${ts}.json`;
+  a.click();
+}
+
+function appendEntry(idx) {
+  const log = document.getElementById("log");
+  if (log.querySelector(".empty")) log.innerHTML = "";
+
+  const m = messages[idx];
+  if (!matchesFilters(m)) return;
+  const node = renderEntry(idx, m);
+  log.appendChild(node);
+
+  // Auto-scroll
+  if (document.getElementById("autoscroll").checked) {
+    log.scrollTop = log.scrollHeight;
+  }
+}
+
+function renderLog() {
+  const log = document.getElementById("log");
+  log.innerHTML = "";
+  if (messages.length === 0) {
+    log.innerHTML = `<div class="empty"><h2>No messages yet</h2><p>Waiting for the server.</p></div>`;
+    return;
+  }
+  for (let i = 0; i < messages.length; i++) {
+    const m = messages[i];
+    if (!matchesFilters(m)) continue;
+    log.appendChild(renderEntry(i, m));
+  }
+  if (document.getElementById("autoscroll").checked) {
+    log.scrollTop = log.scrollHeight;
+  }
+}
+
+function matchesFilters(m) {
+  const t = m.data && m.data.type;
+  if (activeFilter !== "ALL" && t !== activeFilter) return false;
+
+  const search = document.getElementById("search").value.trim().toLowerCase();
+  if (search) {
+    const blob = JSON.stringify(m.data).toLowerCase();
+    if (!blob.includes(search)) return false;
+  }
+  return true;
+}
+
+function renderEntry(idx, m) {
+  const data = m.data;
+  const t = data.type || "?";
+  const kind = data._sent ? "response" : typeKind(t);
+  const div = document.createElement("div");
+  div.className = "entry";
+  div.dataset.idx = idx;
+
+  const head = document.createElement("div");
+  head.className = "head";
+
+  const chev = document.createElement("span");
+  chev.className = "chev";
+  chev.textContent = openEntries.has(idx) ? "▼" : "▶";
+  head.appendChild(chev);
+
+  // Type pill links to the message reference in docs.html. Clicking opens
+  // the docs in a new tab anchored to that message's section.
+  const typeEl = document.createElement(data._sent ? "span" : "a");
+  typeEl.className = "type type-" + (data._sent ? "response" : kind);
+  typeEl.textContent = (data._sent ? "→ " : "") + t;
+  if (!data._sent && t && t !== "?") {
+    typeEl.href = "docs.html#m-" + t;
+    typeEl.target = "_blank";
+    typeEl.title = `Open ${t} in docs`;
+    typeEl.onclick = (ev) => ev.stopPropagation(); // don't toggle expand
+  }
+  head.appendChild(typeEl);
+
+  if (typeof data.sequence === "number") {
+    const seqEl = document.createElement("span");
+    seqEl.className = "seq";
+    seqEl.textContent = `#${data.sequence}`;
+    head.appendChild(seqEl);
+  }
+
+  const time = new Date(m.recvAt);
+  const timeEl = document.createElement("span");
+  timeEl.className = "time";
+  timeEl.textContent = time.toLocaleTimeString([], { hour12: false });
+  head.appendChild(timeEl);
+
+  const previewEl = document.createElement("span");
+  previewEl.className = "preview";
+  previewEl.textContent = makePreview(data);
+  head.appendChild(previewEl);
+
+  div.appendChild(head);
+
+  const pre = document.createElement("pre");
+  pre.className = openEntries.has(idx) ? "" : "hidden";
+  pre.innerHTML = highlightJson(data);
+  div.appendChild(pre);
+
+  head.onclick = () => {
+    if (openEntries.has(idx)) {
+      openEntries.delete(idx);
+      pre.classList.add("hidden");
+      chev.textContent = "▶";
+    } else {
+      openEntries.add(idx);
+      pre.classList.remove("hidden");
+      chev.textContent = "▼";
+    }
+  };
+
+  return div;
+}
+
+function makePreview(data) {
+  // One-line summary of each message type
+  const t = data.type;
+  if (data._sent) return "(sent)";
+  if (t === "hello") return `${data.mod_name || "?"} v${data.mod_version || "?"}`;
+  if (t === "inventory_update") {
+    const players = (data.players || []).length;
+    const stage = data.stage && data.stage.name;
+    const time = data.timer && typeof data.timer.run_seconds === "number"
+      ? data.timer.run_seconds.toFixed(0) + "s" : null;
+    return [stage, `${players} player${players === 1 ? "" : "s"}`, time].filter(Boolean).join(" · ");
+  }
+  if (t === "pong") return "ack";
+  if (t === "run_started" || t === "run_ended") return data.run_id ? `run ${data.run_id.slice(0, 8)}…` : "";
+  if (t === "stage_changed") return data.stage && data.stage.name || "";
+  if (t === "player_died") {
+    const name = data.player && data.player.display_name;
+    const stageNum = data.stage && data.stage.number;
+    return `${name || "?"} (stage ${stageNum ?? "?"})`;
+  }
+  if (t === "pickup_granted") {
+    const name = data.player && data.player.display_name;
+    const item = data.item && data.item.name;
+    const src = data.source === "give_item" ? " [give]" : "";
+    return `${name || "?"} got ${item || "?"}${src}`;
+  }
+  if (t === "teleporter_activated") return data.stage && data.stage.name || "";
+  if (t === "teleporter_charged") return data.stage && data.stage.name || "";
+  if (t === "boss_defeated") {
+    const names = (data.bosses || []).map(b => `${b.body_name}×${b.count}`).join(", ");
+    return names || "encounter end";
+  }
+  if (t === "chest_opened") return data.chest && `${data.chest.kind} chest (${data.chest.cost}g)` || "";
+  if (t === "shrine_used") return data.shrine && `${data.shrine.kind} · ${data.shrine.outcome}` || "";
+  if (t === "shrine_mountain_activated") {
+    const sc = data.stack_count;
+    return `mountain · stack ${sc ?? "?"}`;
+  }
+  if (t === "newt_altar_used") return "→ Bazaar";
+  if (t === "purchase_made") return data.purchase && `${data.purchase.source} · ${data.purchase.cost}${data.purchase.currency === "gold" ? "g" : " " + data.purchase.currency}` || "";
+  if (t === "scrapper_used") {
+    const item = data.item && data.item.name;
+    const scrap = data.scrap && data.scrap.name;
+    return `${item || "?"} → ${scrap || "scrap"}`;
+  }
+  if (t === "item_transformed") {
+    const taken = data.taken_item && data.taken_item.name;
+    const given = data.given_item && data.given_item.name;
+    return `${taken || "?"} → ${given || "?"} (${data.transform_type || "?"})`;
+  }
+  if (t === "player_respawned") {
+    const name = data.player && data.player.display_name;
+    return `${name || "?"} respawned`;
+  }
+  if (t === "run_journal_response") {
+    return `${data.returned_count ?? "?"}/${data.matched_count ?? "?"} entries (buffer ${data.buffer_count ?? "?"})`;
+  }
+  if (t === "run_summary") {
+    const itemTotal = data.items_by_tier
+      ? Object.values(data.items_by_tier).reduce((s, n) => s + n, 0) : 0;
+    return `${itemTotal} items · ${data.total_deaths || 0} deaths`;
+  }
+  if (t === "loadout_response") return `${(data.players || []).length} player${(data.players || []).length === 1 ? "" : "s"}`;
+  if (t === "modded_items_start") return `${data.count} items incoming`;
+  if (t === "modded_item") {
+    const it = data.item || {};
+    return it.name || it.id || "?";
+  }
+  if (t === "modded_items_end") return `sent ${data.sent || 0}, failed ${data.failed || 0}`;
+  if (t === "challenges") return `${(data.challenges || []).length} entries`;
+  if (t === "error") {
+    // Server-sent protocol error (has an `error` code) vs the inspector's own
+    // synthetic entry for unparseable frames (has `raw`).
+    if (data.error) return `${data.error}${data.request_type ? " · " + data.request_type : ""}`;
+    return data.raw ? data.raw.slice(0, 60) + "…" : "parse error";
+  }
+  return "";
+}
+
+// ============ JSON syntax highlighter ============
+function escapeHtml(s) {
+  return s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+}
+
+function highlightJson(value) {
+  // Truncate giant base64 image fields for log display
+  const cleaned = sanitizeForDisplay(value);
+  const json = JSON.stringify(cleaned, null, 2);
+  return json
+    .replace(/("(?:[^"\\]|\\.)*")(\s*:)/g, '<span class="json-key">$1</span>$2')
+    .replace(/: ("(?:[^"\\]|\\.)*")/g, ': <span class="json-str">$1</span>')
+    .replace(/: (-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g, ': <span class="json-num">$1</span>')
+    .replace(/: (true|false)/g, ': <span class="json-bool">$1</span>')
+    .replace(/: (null)/g, ': <span class="json-null">$1</span>')
+    .replace(/^[\s]*[\{\}\[\],]/gm, m => `<span class="json-punct">${m}</span>`);
+}
+
+function sanitizeForDisplay(value) {
+  if (Array.isArray(value)) return value.map(sanitizeForDisplay);
+  if (value && typeof value === "object") {
+    const out = {};
+    for (const k of Object.keys(value)) {
+      const v = value[k];
+      if (k === "image_base64" && typeof v === "string" && v.length > 100) {
+        out[k] = `${v.slice(0, 40)}…  [+${(v.length - 40).toLocaleString()} bytes]`;
+      } else {
+        out[k] = sanitizeForDisplay(v);
+      }
+    }
+    return out;
+  }
+  return value;
+}
+
+// ============ Keyboard shortcuts ============
+document.addEventListener("keydown", e => {
+  // Ctrl/Cmd + Enter in custom JSON sends
+  if ((e.ctrlKey || e.metaKey) && e.key === "Enter" && document.activeElement === document.getElementById("customJson")) {
+    e.preventDefault();
+    sendCustomJson();
+    return;
+  }
+  // / focuses search
+  if (e.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    document.getElementById("search").focus();
+  }
+  // Esc clears search
+  if (e.key === "Escape" && document.activeElement === document.getElementById("search")) {
+    document.getElementById("search").value = "";
+    renderLog();
+  }
+});
+</script>
+</body>
+</html>

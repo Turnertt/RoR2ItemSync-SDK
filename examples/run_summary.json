@@ -1,0 +1,43 @@
+{
+  "type": "run_summary",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:36:11.0000000Z",
+  "sequence": 501,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "timer": {
+    "run_seconds": 393.564667,
+    "stage_seconds": 0.0,
+    "difficulty_coefficient": 1.84828,
+    "is_paused": false,
+    "has_focus": true
+  },
+  "stage_clear_count": 3,
+  "items_by_tier": {
+    "Tier2": 4,
+    "Tier1": 2
+  },
+  "total_deaths": 0,
+  "deaths_by_player": {
+    "76561190000000000": 0
+  },
+  "players": [
+    {
+      "network_user_id": "76561190000000000",
+      "display_name": "ExamplePlayer",
+      "kills": 96,
+      "minion_kills": 0,
+      "elite_kills": 4,
+      "deaths": 0,
+      "damage_dealt": 41250.0,
+      "minion_damage_dealt": 0.0,
+      "damage_taken": 3120.0,
+      "health_healed": 1880.0,
+      "gold_collected": 1240,
+      "distance_traveled": 2870.5,
+      "items_collected": 18,
+      "stages_completed": 3,
+      "highest_level": 6
+    }
+  ]
+}

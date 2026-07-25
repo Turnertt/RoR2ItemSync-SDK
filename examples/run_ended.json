@@ -1,0 +1,18 @@
+{
+  "type": "run_ended",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:38:54.0109537Z",
+  "sequence": 579,
+  "state": "menu",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "severity": "major",
+  "timer": {
+    "run_seconds": 567.4,
+    "stage_seconds": 174.2,
+    "difficulty_coefficient": 2.45,
+    "is_paused": true,
+    "has_focus": true
+  },
+  "outcome": "quit",
+  "ending": null
+}

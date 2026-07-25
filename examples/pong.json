@@ -1,0 +1,8 @@
+{
+  "type": "pong",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:28:37.5996816Z",
+  "sequence": 3,
+  "state": "menu",
+  "run_id": ""
+}

@@ -1,0 +1,40 @@
+{
+  "type": "loadout_response",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:36:11.5000000Z",
+  "sequence": 502,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "players": [
+    {
+      "display_name": "ExamplePlayer",
+      "network_user_id": "76561190000000000",
+      "survivor": {
+        "name": "Bandit",
+        "body_name": "Bandit2Body"
+      },
+      "skills": {
+        "primary": {
+          "id": "BanditBurst",
+          "name": "Burst",
+          "variant_index": 0
+        },
+        "secondary": {
+          "id": "BanditSerratedDagger",
+          "name": "Serrated Dagger",
+          "variant_index": 0
+        },
+        "utility": {
+          "id": "BanditSmokebomb",
+          "name": "Smoke Bomb",
+          "variant_index": 0
+        },
+        "special": {
+          "id": "BanditDesperado",
+          "name": "Desperado",
+          "variant_index": 0
+        }
+      }
+    }
+  ]
+}

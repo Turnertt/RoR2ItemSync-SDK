@@ -1,0 +1,24 @@
+{
+  "type": "stage_changed",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:29:27.3138906Z",
+  "sequence": 10,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "severity": "major",
+  "stage": {
+    "number": 1,
+    "name": "Distant Roost",
+    "name_token": "MAP_BLACKBEACH_TITLE",
+    "scene_name": "blackbeach",
+    "scene_type": "Stage",
+    "is_interstitial": false
+  },
+  "timer": {
+    "run_seconds": 0.0166666675,
+    "stage_seconds": 0.0,
+    "difficulty_coefficient": 1.0,
+    "is_paused": true,
+    "has_focus": true
+  }
+}

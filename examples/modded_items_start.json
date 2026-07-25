@@ -1,0 +1,13 @@
+{
+  "type": "modded_items_start",
+  "schema_version": 1,
+  "count": 2,
+  "mods": [
+    {
+      "id": "team_moonstorm",
+      "name": "Team Moonstorm",
+      "version": "2.5.1",
+      "count": 2
+    }
+  ]
+}

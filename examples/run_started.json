@@ -1,0 +1,21 @@
+{
+  "type": "run_started",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:29:26.7490792Z",
+  "sequence": 9,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "severity": "major",
+  "seed": "13959349961389347880",
+  "game_mode": "ClassicRun",
+  "difficulty": {
+    "index": 2,
+    "name": "Monsoon",
+    "name_token": "DIFFICULTY_HARD_NAME"
+  },
+  "eclipse_level": 0,
+  "artifacts": [
+    { "id": "Command", "name": "Artifact of Command" }
+  ],
+  "player_count": 1
+}

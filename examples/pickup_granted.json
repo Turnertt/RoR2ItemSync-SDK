@@ -1,0 +1,47 @@
+{
+  "type": "pickup_granted",
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:30:41.3476705Z",
+  "sequence": 85,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "severity": "minor",
+  "source": "pickup",
+  "player": {
+    "display_name": "ExamplePlayer",
+    "network_user_id": "76561190000000000",
+    "is_local": true,
+    "is_bot": false,
+    "resolved": true,
+    "survivor": {
+      "name": "Bandit",
+      "body_name": "Bandit2Body"
+    }
+  },
+  "item": {
+    "id": "ExtraShrineItem",
+    "qualified_id": "RoR2.DLC2|ExtraShrineItem",
+    "pack_id": "RoR2.DLC2",
+    "is_equipment": false,
+    "count": 1,
+    "tier": "Tier2",
+    "name": "Chance Doll",
+    "hidden": false,
+    "temporary": false
+  },
+  "timer": {
+    "run_seconds": 74.6,
+    "stage_seconds": 73.4,
+    "difficulty_coefficient": 1.18,
+    "is_paused": false,
+    "has_focus": true
+  },
+  "stage": {
+    "number": 1,
+    "name": "Distant Roost",
+    "name_token": "MAP_BLACKBEACH_TITLE",
+    "scene_name": "blackbeach",
+    "scene_type": "Stage",
+    "is_interstitial": false
+  }
+}

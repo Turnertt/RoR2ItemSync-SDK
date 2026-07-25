@@ -1,0 +1,245 @@
+{
+  "type": "inventory_update",
+  "is_host": true,
+  "schema_version": 2,
+  "timestamp": "2026-06-03T23:37:17.9133621Z",
+  "sequence": 483,
+  "state": "in_run",
+  "run_id": "1f024a5951194dc0b76a8852741b18b6",
+  "timer": {
+    "run_seconds": 393.564667,
+    "stage_seconds": 0.0,
+    "difficulty_coefficient": 1.84828,
+    "is_paused": false,
+    "has_focus": true
+  },
+  "stage": {
+    "number": 2,
+    "name": "Abandoned Aqueduct",
+    "name_token": "MAP_GOOLAKE_TITLE",
+    "scene_name": "goolake",
+    "scene_type": "Stage",
+    "is_interstitial": false
+  },
+  "difficulty": {
+    "index": 1,
+    "name": "Rainstorm",
+    "name_token": "DIFFICULTY_NORMAL_NAME"
+  },
+  "artifacts": [],
+  "world": {
+    "chests_remaining": 6,
+    "shops_remaining": 2,
+    "equipment_barrels_remaining": 2,
+    "shop_items": [
+      {
+        "id": "SpeedBoostPickup",
+        "qualified_id": "RoR2.DLC2|SpeedBoostPickup",
+        "pack_id": "RoR2.DLC2",
+        "is_equipment": false,
+        "count": 1,
+        "tier": "Tier1",
+        "name": "Elusive Antlers",
+        "hidden": false
+      },
+      {
+        "id": "DelayedDamage",
+        "qualified_id": "RoR2.DLC2|DelayedDamage",
+        "pack_id": "RoR2.DLC2",
+        "is_equipment": false,
+        "count": 1,
+        "tier": "Tier1",
+        "name": "Warped Echo",
+        "hidden": false
+      },
+      {
+        "id": "Mushroom",
+        "qualified_id": "RoR2.BaseContent|Mushroom",
+        "pack_id": "RoR2.BaseContent",
+        "is_equipment": false,
+        "count": 1,
+        "tier": "Tier1",
+        "name": "Bustling Fungus",
+        "hidden": false
+      },
+      {
+        "id": "Firework",
+        "qualified_id": "RoR2.BaseContent|Firework",
+        "pack_id": "RoR2.BaseContent",
+        "is_equipment": false,
+        "count": 1,
+        "tier": "Tier1",
+        "name": "Bundle of Fireworks",
+        "hidden": false
+      },
+      {
+        "id": null,
+        "qualified_id": null,
+        "pack_id": null,
+        "is_equipment": false,
+        "count": 1,
+        "tier": "Tier1",
+        "name": "???",
+        "hidden": true
+      }
+    ],
+    "printer_items": [],
+    "ground_items": [],
+    "command_items": [],
+    "minions": {
+      "total": 2,
+      "by_owner": [
+        {
+          "owner_network_user_id": "76561190000000000",
+          "owner_display_name": "ExamplePlayer",
+          "count": 2,
+          "bots": [
+            {
+              "body_name": "Drone1Body",
+              "name": "Gunner Drone",
+              "stats": {
+                "health": 264.0,
+                "max_health": 330.0,
+                "shield": 0.0,
+                "barrier": 0.0,
+                "is_alive": true
+              },
+              "items": []
+            },
+            {
+              "body_name": "EquipmentDroneBody",
+              "name": "Equipment Drone",
+              "stats": {
+                "health": 512.0,
+                "max_health": 512.0,
+                "shield": 0.0,
+                "barrier": 0.0,
+                "is_alive": true
+              },
+              "items": [
+                {
+                  "id": "Blackhole",
+                  "qualified_id": "RoR2.BaseContent|Blackhole",
+                  "pack_id": "RoR2.BaseContent",
+                  "is_equipment": true,
+                  "count": 1,
+                  "tier": "Equipment",
+                  "name": "Primordial Cube",
+                  "hidden": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "teleporter": {
+      "state": "Idle",
+      "charge_fraction": 0.0,
+      "is_charging": false,
+      "is_charged": false
+    },
+    "boss": null
+  },
+  "players": [
+    {
+      "display_name": "ExamplePlayer",
+      "network_user_id": "76561190000000000",
+      "is_local": true,
+      "is_bot": false,
+      "gold": 312,
+      "void_coins": 0,
+      "survivor": {
+        "name": "Bandit",
+        "body_name": "Bandit2Body"
+      },
+      "stats": {
+        "health": 241.0,
+        "max_health": 275.0,
+        "shield": 0.0,
+        "max_shield": 0.0,
+        "barrier": 0.0,
+        "combined_health": 241.0,
+        "is_alive": true,
+        "curse_penalty": 0.0,
+        "regen": 2.0,
+        "armor": 0.0,
+        "damage": 24.0,
+        "attack_speed": 1.0,
+        "crit": 1.0,
+        "crit_multiplier": 2.0,
+        "move_speed": 7.0,
+        "level": 6.0
+      },
+      "items": [
+        {
+          "id": "BonusGoldPackOnKill",
+          "qualified_id": "RoR2.BaseContent|BonusGoldPackOnKill",
+          "pack_id": "RoR2.BaseContent",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier2",
+          "name": "Ghor's Tome",
+          "hidden": false,
+          "temporary": false
+        },
+        {
+          "id": "ExtraShrineItem",
+          "qualified_id": "RoR2.DLC2|ExtraShrineItem",
+          "pack_id": "RoR2.DLC2",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier2",
+          "name": "Chance Doll",
+          "hidden": false,
+          "temporary": false
+        },
+        {
+          "id": "FreeChest",
+          "qualified_id": "RoR2.DLC1|FreeChest",
+          "pack_id": "RoR2.DLC1",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier2",
+          "name": "Shipping Request Form",
+          "hidden": false,
+          "temporary": false
+        },
+        {
+          "id": "HealingPotion",
+          "qualified_id": "RoR2.DLC1|HealingPotion",
+          "pack_id": "RoR2.DLC1",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier1",
+          "name": "Power Elixir",
+          "hidden": false,
+          "temporary": false
+        },
+        {
+          "id": "IncreasePrimaryDamage",
+          "qualified_id": "RoR2.DLC2|IncreasePrimaryDamage",
+          "pack_id": "RoR2.DLC2",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier2",
+          "name": "Luminous Shot",
+          "hidden": false,
+          "temporary": false
+        },
+        {
+          "id": "OutOfCombatArmor",
+          "qualified_id": "RoR2.DLC1|OutOfCombatArmor",
+          "pack_id": "RoR2.DLC1",
+          "is_equipment": false,
+          "count": 1,
+          "tier": "Tier1",
+          "name": "Oddly-shaped Opal",
+          "hidden": false,
+          "temporary": false
+        }
+      ],
+      "buffs": []
+    }
+  ]
+}

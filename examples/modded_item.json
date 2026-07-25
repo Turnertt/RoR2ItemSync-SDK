@@ -1,0 +1,27 @@
+{
+  "type": "modded_item",
+  "schema_version": 1,
+  "item": {
+    "id": "item_fork",
+    "qualified_id": "com.TeamMoonstorm|Fork",
+    "pack_id": "com.TeamMoonstorm",
+    "name": "Fork",
+    "basic_description": "Increase <style=cIsDamage>damage</style> by <style=cIsDamage>8%</style> <style=cStack>(+8% per stack)</style>.",
+    "detailed_description": "Increase <style=cIsDamage>base damage</style> by <style=cIsDamage>8%</style> <style=cStack>(+8% per stack)</style>.",
+    "rarity": "Common",
+    "tier": "Tier1",
+    "rarity_color": "#FFFFFF",
+    "is_equipment": false,
+    "category": [
+      "Damage"
+    ],
+    "lore": [
+      "Once mighty, this fork now rests on a windswept hillside.",
+      "",
+      "The wars it survived are long forgotten."
+    ],
+    "source_mod": "Team Moonstorm",
+    "source_mod_id": "team_moonstorm",
+    "image_base64": "iVBORw0KGgoAAAANSUhEUgAA?  [truncated for display; real captures include the full PNG]"
+  }
+}
